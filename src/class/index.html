@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 - class</title>
+	<script src="class.js"></script>
+</head>
+<body>
+	<h1>ES6 - classes</h1>
+	<pre>
+class Point {
+    /**
+     * Create a point.
+     * @param {number} x - The x value.
+     * @param {number} y - The y value.
+     */
+    constructor(x, y) {
+        this.x = x;
+		this.y = y;
+    }
+
+    /**
+     * Get the x value.
+     * @return {number} The x value.
+     */
+    getX() {
+        return this.x;
+    }
+
+    /**
+     * Get the y value.
+     * @return {number} The y value.
+     */
+    getY() {
+        return this.y;
+    }
+
+    /**
+     * Convert a string containing two comma-separated numbers into a point.
+     * @param {string} str - The string containing two comma-separated numbers.
+     * @return {Point} A Point object.
+     */
+    static fromString(str) {
+        return '(' + this.x + ',' + this.y + ')';
+    }
+}
+	</pre>	
+	
+	
+	<h3>Example 1</h3>
+	<p>
+	<button id="runCode1">Run Example 1</button>
+	</p>
+	<pre>
+function printPoint()
+{
+    var somePoint = new Point(7,4);
+    console.log(somePoint.toString());
+}
+	</pre>
+    
+	<h3>Example 2</h3>
+	<p>
+	<button id="runCode2">Run Example 2</button>
+	</p>
+	<pre>
+function printPoint2()
+{
+    var somePoint = Point.doubledPoint(7,4);
+    alert(somePoint.toString());
+}
+	</pre>    
+    
+    <h3>Extending classes</h3>
+    
+    <pre>
+ class Dot extends Point {
+    /**
+     * Create a dot.
+     * @param {number} x - The x value.
+     * @param {number} y - The y value.
+     * @param {number} width - The width of the dot, in pixels.
+     */
+    constructor(x, y, width) {
+        super(x,y);
+        this.width = width;
+    }
+
+    /**
+     * Get the dot's width.
+     * @return {number} The dot's width, in pixels.
+     */
+    getWidth() {
+        return this.width
+    }
+}  
+    </pre>
+    
+    <h3>Example 3</h3>
+	<p>
+	<button id="runCode3">Run Example 3</button>
+	</p>
+	<pre>
+function printDot()
+{
+    var someDot = new Dot(100,100,4);
+    alert('x: ' + someDot.getX() + ' y: ' + someDot.getY() + ' width: ' + someDot.getWidth());
+}
+	</pre>  
+	
+	
+	
+	<h3>References</h3>
+	
+	<p><a href='/es6demos'>Return to Start</a></p>
+</body>
+</html>
