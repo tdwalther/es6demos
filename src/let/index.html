@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 - let</title>
+	<script src="let.js"></script>
+</head>
+<body>
+	<h1>ES6 - let</h1>
+	<h2>Block scope for variables</h2>
+	<p>The let keyword respects block scope the way C# and Java programmers are used to.</p>
+    <p>Note the introduction of "Block Scopes" to avoid silly if (true) creation of scopes</p>
+	<h4>Support</h4>
+    <ul>
+    <li>IE 11 - works</li>
+	<li>Chrome - Enable Experimental JavaScript in chrome://flags</li>
+	<li>Firefox - <a href='https://developer.mozilla.org/en-US/Firefox/Releases/44'>Wait for Firefox 44 in January 2016</a> or opt-in</li>
+    </ul>
+	
+	<h3>Example 1 - let there be block scope</h3>
+	<p>
+	<button id="runCode1">Run Example 1</button>
+	</p>
+	<pre>
+function let1() {
+    console.log('Meaningless statement');
+    var x = 6;
+    
+    if (true)
+    {
+      let y = 7;
+      console.log(y);
+      
+      y = 100;
+      console.log(y);
+    }
+}
+	</pre>
+	
+	<h3>Example 2 - The Breakening</h3>
+	<p>
+	<button id="runCode2">Run Example 2</button>
+	</p>
+	<pre>
+function let2() {
+    console.log('Meaningless statement');
+    var x = 6;
+    
+    {
+      let y = 7;
+      console.log(y);
+      
+      y = 100;
+      console.log(y);
+    }
+    
+    // With the var keyword, this would have printed '106'
+    // since y would have function scope.
+    // Instead, it's out of scope!
+    console.log(x + y);
+}
+	</pre>
+    <p>
+	<button id="runCode2var">Run Example 2 using var</button>
+	</p>
+	
+	<h3>Example 3 - The power of block scope</h3>
+	<p>
+	<button id="runCode3">Run Example 3</button>
+	</p>
+	<pre>
+function let3()
+{
+    let a = 900;
+    
+    for (let a = 0; a < 3; a++)
+    {
+      // meaningless statement
+      let y = a + 1;
+      console.log('for loop a: ' + a  + ' y: ' + y);
+    }
+    
+    let y = 0;
+    while (y < 3)
+    {
+      let a = 10;
+      let b = y + a;
+      console.log('while a: ' + a + ' b: ' + b + ' y: ' + y);
+      y++;
+    }
+    
+    console.log('all done: ' + a);
+}
+	</pre>
+    
+	<a href='crossingStreams.html'><h3>Example 4 - Crossing the streams</h3></a>
+
+	<h3>References</h3>
+	
+	<p><a href='/es6demos'>Return to Start</a></p>
+</body>
+</html>

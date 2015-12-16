@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 - spread</title>
+	<script src="spread.js"></script>
+</head>
+<body>
+	<h1>ES6 - spread operator</h1>
+    <p>Quickly pull arrays into individual items</p>
+
+	<h3>Example 1 - simple array usage</h3>
+	<p>
+	<button id="runCode1">Run Example 1</button>
+	</p>
+	<pre>
+function spread1() {
+  let numbers = [1,2,3,4,5,6,7];
+  let alpha = ['a', 'b', 'c'];
+  
+  console.log(numbers);
+  console.log(...numbers);
+  
+  console.log(alpha);
+  console.log(...alpha);
+  
+  alert(Math.max(...numbers));
+  
+  alert(["a", ..."bcd", "e"][3]);
+}
+	</pre>
+	
+	<h3>Destructuring - Given the following</h3>
+	<pre>
+function getPersonFromId()
+{
+  return {
+    firstName : "Mike",
+    lastName : "Shea",
+    city : "Springfield",
+    favoriteFood : "pizza",
+    age : "25"
+  }
+}		
+	</pre>
+	
+	<h3>Example 2 - destructuring objects</h3>
+	<p>
+	<button id="runCode2">Run Example 2</button>
+	</p>
+	<pre>
+function destruct1() {
+  ({firstName, lastName, city, favoriteFood, age} = getPersonFromId(4356));
+  
+  console.log(firstName, lastName, city, favoriteFood, age);
+}
+	</pre>
+	
+	<h3>Example 3 - destructuring objects</h3>
+	<p>
+	<button id="runCode3">Run Example 3</button>
+	</p>
+	<pre>
+function destruct2() {
+  ({firstName, lastName, city} = getPersonFromId(4356));
+  
+  console.log(firstName, lastName, city);
+}
+	</pre>
+	
+	<h3>Example 4 - aliased destructuring objects</h3>
+	<p>
+	<button id="runCode4">Run Example 4</button>
+	</p>
+	<pre>
+function destruct3() {
+  ({favoriteFood: food, age: yearsLived} = getPersonFromId(4356));
+  
+  console.log(food, yearsLived);
+}
+	</pre>			
+	
+	<h3>References</h3>
+	
+	<p><a href='/es6demos'>Return to Start</a></p>
+</body>
+</html>
