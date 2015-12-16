@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript variable scoping</title>
+	<script src="hoisting.js"></script>
+</head>
+<body>
+	<h1>JavaScript variable scoping</h1>
+	<h2>var - "Variable Hoisting"</h2>
+	<p>The JavaScript compiler and engine "hoist" your var declarations in a function to the top of a function.  JavaScript is "function scoped", not block scoped</p>
+	
+	<h3>Example 1</h3>
+	<p>
+	<button id="runCode1">Run Example 1</button>
+	</p>
+	<pre>
+function hoisting1() {
+    console.log('Meaningless statement');
+  
+    for (var i = 0; i < 10; i++) {
+        var myvar = 5;
+    }
+
+    // Something similar to this wouldn't work in C# / Java
+    // because myVar has gone out of scope
+    alert(myvar);
+}
+	</pre>
+	
+	
+	<h3>Example 2</h3>
+	<p>
+	<button id="runCode2">Run Example 2</button>
+	</p>
+	<pre>
+function hoisting2() {
+    // Notice how everything is declared and undefined 
+    // at the beginning of function execution
+    // no matter where you declare the variable
+    var foo = 2;
+    var bar;
+    
+    if (true)
+    {
+      bar = 1;
+    }
+  
+    console.log(foo + bar);
+    
+    alert(foo + bar);
+    
+    var leftovers = 7;
+} 
+	</pre>
+	
+	<h3>Example 3</h3>
+	<p>
+	<button id="runCode3">Run Example 3</button>
+	</p>
+	<pre>
+function localPrecedence()
+{
+  console.log(someGlobal);
+  
+  var someGlobal = 42;
+  
+  console.log(someGlobal);
+}
+	</pre>
+	
+	<h3>References</h3>
+	<a href="https://www.kenneth-truyers.net/2013/04/20/javascript-hoisting-explained/">JavaScript Hoisting Explained</a> - Kenneth Truyers
+	<br>
+	<a href="http://www.jslint.com/help.html">JSLint help (search for "var let const")</a> - Douglas Crockford
+	
+	<p><a href='/es6demos'>Return to Start</a></p>
+</body>
+</html>

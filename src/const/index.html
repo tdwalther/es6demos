@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 - const</title>
+	<script src="const.js"></script>
+</head>
+<body>
+	<h1>ES6 - const</h1>
+	<h2>variables you cannot change</h2>
+	<p>The const keyword respects block scope the way C# and Java programmers are used to.</p>
+    </ul>
+	
+	<h3>Example 1 - you cannot change!</h3>
+	<p>
+	<button id="runCode1">Run Example 1</button>
+	</p>
+	<pre>
+function const1() {
+  const foo = 123;
+  return (foo === 123);
+}
+	</pre>
+	
+	<h3>Example 2 - respect block scope</h3>
+	<p>
+	<button id="runCode2">Run Example 2</button>
+	</p>
+	<pre>
+function const2() {
+  const bar = 123;
+  console.log('before block - bar: ' + bar);
+  
+  {
+    const bar = 456;
+    console.log('in block - bar: ' + bar);
+  }
+  
+  console.log('after block - bar: ' + bar);
+
+  return bar === 123;
+}
+	</pre>
+	
+	<h3>Example 3 - can't change a const</h3>
+	<p>
+	<button id="runCode3">Run Example 3</button>
+	</p>
+	<pre>
+function constError() {
+  const baz = 1;
+  try {
+  Function("const foo = 1; foo = 2;")();
+  } 
+  catch(e) {
+    return true;
+  }
+} 
+	</pre>	
+    
+	<h3>References</h3>
+	
+	<p><a href='/es6demos'>Return to Start</a></p>
+</body>
+</html>

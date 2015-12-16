@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 - arrow</title>
+	<script src="arrow.js"></script>
+</head>
+<body>
+	<h1>ES6 - arrow functions</h1>
+    <p>Shorter syntax for functions plus this binding</p>
+	
+	<p>Can't use as constructor</p>
+	<pre>
+		var Car = function();
+		var Truck = () => {};
+		
+		var mazda = new Car();
+		var ford = new Truck();  // Error!
+	</pre>
+
+	<h3>Example 1 - simple arrow functions</h3>
+	<p>
+	<button id="runCode1">Run Example 1</button>
+	</p>
+	<pre>
+function arrow1() {
+  var numbers = [1,2,3,4,5,6];
+  
+  // allowed to not use parentheses for one argument
+  // don't have to use braces for single line function
+  // implicit return
+  
+  var squares = numbers.map( x => x * x);
+  
+  console.log(squares);
+}
+
+	</pre>
+	
+	<h3>Example 2 - simple arrow functions</h3>
+	<p>
+	<button id="runCode2">Run Example 2</button>
+	</p>
+	<pre>
+function arrow2() {
+  var numbers = [1,2,3,4,5,6];
+  
+  // multiple arguments, have to use parentheses
+  var squares = numbers.map( (v, i) => "value was: " + v + ". index was: " + i);
+  
+  console.log(squares);
+}
+	</pre>	
+	
+	<h3>Example 3 - this binding based on caller breaks anonymous function</h3>
+	<p>
+	<button id="runCode3">Run Example 3</button>
+	</p>
+	<pre>
+var countupBroken = {
+    counter: 0,
+     
+    start:function(){
+        setInterval(function(){
+            this.counter++; // **INCORRECT**- doesn't increment countup's counter property
+            alert(counter);
+        }, 5000);
+    }
+};
+
+function startCountupBroken() {
+  countupBroken.start();
+}
+	</pre>
+	
+	<h3>Example 4 - lexical binding of this</h3>
+	<p>
+	<button id="runCode4">Run Example 4</button>
+	</p>
+	<pre>
+var countupFixed = {
+    counter: 0,
+     
+    start:function(){
+        setInterval( () => {
+          this.counter++; // Increments countup's counter property
+          
+          // see? I had to explicitly use the global window object here
+          window.alert(counter);
+        }, 5000);
+    }
+};
+
+function startCountupFixed() { 
+  countupFixed.start();
+}
+	</pre>		
+	
+	<h3>References</h3>
+	
+	<p><a href='/es6demos'>Return to Start</a></p>
+</body>
+</html>
